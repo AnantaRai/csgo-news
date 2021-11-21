@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+			rel="stylesheet"
+		/>
+
+		<title>Players</title>
+	</head>
+	<body class="bg-gray-200">
+		<%- include('../partials/navigation'); %>
+		<main class="p-8">
+			<h1 class="text-center font-bold text-2xl uppercase">Top Players</h1>
+			<% players.forEach(function(player, index) { %>
+			<div class="rounded-lg mb-2 text-center shadow-lg p-8">
+				<h2>#<%= index + 1 %></h2>
+				<p class="font-bold"><%= player.nickname %></p>
+				<p>Team: <%= player.team %></p>
+				<p>Maps Played: <%= player.mapsPlayed %></p>
+				<p>Kd: <%= player.kd %></p>
+				<p>Rating: <%= player.rating %></p>
+			</div>
+			<% }); %>
+		</main>
+	</body>
+</html>

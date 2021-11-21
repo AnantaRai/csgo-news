@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+			rel="stylesheet"
+		/>
+
+		<title>Players</title>
+	</head>
+	<body class="bg-gray-200">
+		<%- include('../partials/navigation'); %>
+		<main class="p-8">
+			<h1 class="text-center font-bold text-2xl uppercase">Top Teams</h1>
+			<% teams.forEach(function(team) { %>
+			<div class="rounded-lg mb-2 text-center shadow-lg p-8">
+				<h2>#<%= team.ranking %></h2>
+				<img src="<%= team.logo %>" alt="logo" class="w-24 mx-auto" />
+				<p class="font-bold text-xl"><%= team.name %></p>
+				<div class="flex justify-between">
+					<% team.players.forEach(function(player) { %>
+					<div>
+						<img src="<%= player.image %>" alt="player" class="rounded" />
+						<p class="font-bold"><%= player.fullname %></p>
+
+						<p>Country: <%= player.country.name %></p>
+						<img src="<%= player.country.flag %>" alt="flag" class="mx-auto" />
+					</div>
+
+					<% }); %>
+				</div>
+			</div>
+			<% }); %>
+		</main>
+	</body>
+</html>
